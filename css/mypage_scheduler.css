@@ -1,77 +1,80 @@
 @charset "utf-8";
-@import './theme/layout.css';
-
-/* 기본 */
-html,
-body {
-  font-size: 14px;
-}
+@import '/css/theme/layout.css';
 
 /* 전체 레이아웃 */
 button {
   cursor: pointer;
 }
+
+p {
+  margin: 0;
+}
+
+/* a 태그 기본 속성 설정 */
+.aTag-title {
+  color: var(--color-main-text);
+}
+
+.aTag-title:hover {
+  color: var(--color-main-text);
+}
+
 /* 새로운 캘린더  */
 /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
 
-/* .fc-header-toolbar {
+.fc-header-toolbar {
   padding-top: 1em;
   padding-left: 1em;
-  padding-right: 1em; 
-}*/
+  padding-right: 1em;
+}
 
 /* 레이아웃 조정 - 난경 */
-/* .fg-banner {
+.fg-banner {
   background-color: var(--color-background2);
   padding: 20px;
-  box-sizing: border-box; 반응형 추가
-} */
+  box-sizing: border-box; /*반응형 추가*/
+}
 
-.container {
+.main-container {
   display: flex;
   flex-direction: row;
-  /* width: minmax(100%); */
   background-color: var(--color-main-background);
   padding: 20px;
   box-sizing: border-box; /*반응형 추가*/
 }
 
-.container .main-gnb {
+.main-container .main-gnb {
   flex: 2;
   background-color: var(--color-background);
   border-radius: 20px;
   padding: 20px;
 }
 
-.container .mypage_content {
+.main-container .mypage_content {
   flex: 8;
   padding: 20px;
   margin-left: 20px;
   background-color: var(--color-background);
   border-radius: 20px;
-  /* box-sizing: border-box; */
 }
 
 /*메인 컨텐츠 반응형 */
 @media screen and (768px >= width) {
-  .container {
+  .main-container {
     max-width: 1500px;
     flex-direction: column;
+    background-color: var(--color-main-background);
   }
   .main-gnb .pc {
     height: auto;
   }
-  .container .main-gnb {
+  .main-container .main-gnb {
     margin-bottom: 20px;
   }
-  .container .mypage_content {
+  .main-container .mypage_content {
     margin-left: inherit;
   }
 }
-
-/* @media screen and {
-  
-} */
 
 .main-gnb .pc {
   width: 100%;
@@ -154,12 +157,12 @@ button {
 
 /* GNB */
 .main .main-gnb {
-  flex: 1;
+  flex: 3;
   margin: 30px;
   width: 100%;
 }
 
-.main .main-gnb a,
+.main .main-gnb .aTag-title,
 li {
   line-height: 35px;
 }
@@ -180,8 +183,9 @@ li {
 
 /* 활성화 된 메뉴 강조 */
 
-.main-gnb #mypagePcGnb li a.on {
+.main-gnb #mypagePcGnb li .aTag-title.on {
   font-weight: bold;
+  color: var(--color-main-text);
 }
 
 /* base */
