@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "fullcalendar": "^6.1.5",
+    "jquery": "^3.6.4",
+    "jquery-ui": "^1.13.2",
+    "moment": "^2.29.4",
+    "v-calendar": "^2.4.1",
+    "vue": "^3.2.47"
+  }
+}
