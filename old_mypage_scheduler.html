@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="description" content="메인화면" />
+  <meta name="keywords" content="pet hospital search" />
+  <meta name="author" content="2팀" />
+  <title>my page - 의료수첩</title>
+
+  <!-- jquery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Bootstrap CSS 로컬 파일 참조 -->
+  <link rel="stylesheet" href="/css/bootstrap-css/bootstrap.min.css">
+
+  <!-- Bootstrap JS 로컬 파일 참조 -->
+  <script src="/js/bootstrap-js/bootstrap.min.js"></script>
+
+  <!--  폰트 어썸 : 로고 -->
+  <script src="https://kit.fontawesome.com/6631aa96e6.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- calendar js -->
+  <script src="js/calendar.js"></script>
+  <script src="js/calendar_data.js"></script>
+
+  <!--  마이페이지 css -->
+  <link rel="stylesheet" href="css/mypage_scheduler.css" />
+
+  <!-- calendar css -->
+  <link rel="stylesheet" href="css/calendar.css">
+
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="hd-l"></div>
+    <header class="hd">
+      <nav class="hd__menu">
+        <ul class="hd__menu__list1">
+          <li id="logo">
+            <a href="index.html">
+              <i class="fa-solid fa-dog fa-2x"></i>
+              <h3 class="logo-title">슬기로운 반려생활</h3>
+            </a>
+          </li>
+          <li class="hd__menu__list1__item list1-item1">
+            <a href="#" class="aTag-title">펫병원</a>
+            <ul class="hd__menu__list1__item__submenu">
+              <li><a href="#" class="aTag-title">병원찾기</a></li>
+            </ul>
+          </li>
+          <li class="hd__menu__list1__item list1-item2">
+            <a href="#" class="aTag-title">게시판</a>
+            <ul class="hd__menu__list1__item__submenu">
+              <li><a href="#" class="aTag-title">커뮤니티</a></li>
+              <li><a href="#" class="aTag-title">병원후기</a></li>
+              <li><a href="#" class="aTag-title">펫가이드</a></li>
+            </ul>
+          </li>
+          <li class="hd__menu__list1__item list1-item3" id="myPage">
+            <a href="./mypage_main.html" class="aTag-title">마이페이지</a>
+          </li>
+          <div class="hd__menu__list1__item list1-item4" id="join">
+            <li><a href="#" class="aTag-title">로그인</a></li>
+            |
+            <li><a href="#" class="aTag-title">회원가입</a></li>
+          </div>
+        </ul>
+        <a href="#" id="hamburger" class="aTag-title">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+      </nav>
+    </header>
+    <div class="hd-r"></div>
+
+    <div class="fg-l"></div>
+    <figure class="fg-banner">
+      <div class="user-profile">
+        <p class="user-profile_p">마이페이지</p>
+        <h2 class="user-profile_h2">반가워요</h2>
+        <div class="profile-list" onclick="petModify()">
+          <div class="profile-area">
+            <div class="upload-area">
+              <img src="../img/img_profile1.png" alt="" />
+            </div>
+            <div class="upload-area2" id="">
+              <div class="pet-name">반려동물이름</div>
+              <div class="pet-info">정보</div>
+            </div>
+          </div>
+          <div class="profile-make">
+            <a href="./mypage_pet_reg.html" class="aTag-title">
+              <img src="../img/add_circle.png" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </figure>
+    <div class="fg-r"></div>
+
+
+    <div class="mn-l"></div>
+    <main class="main-container">
+      <!-- 사이드메뉴 -->
+      <div class="main-gnb">
+        <div class="pc" id="mypagePcGnb">
+          <ul>
+            <li><a href="./mypage_main.html" class="aTag-title">보호자 정보관리</a></li>
+          </ul>
+          <ul>
+            <li><a href="./mypage_pet_reg.html" class="aTag-title">반려동물 등록</a></li>
+          </ul>
+          <ul>
+            <li><a href="./mypage_scheduler.html" class="aTag-title">의료수첩 관리</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- 메인컨텐츠 -->
+      <div class="mypage_content">
+        <!-- calendar 태그 -->
+        <div id="calendarContainer">
+          <!-- calendar-header -->
+          <div class="calendar-header">
+            <div class="calendar_title-prev">
+              <button type="button" class="prev">
+                <i class="fa-solid fa-angle-left"></i>
+              </button>
+            </div>
+            <div class="title-center">
+              <span class="current-year-month"></span>
+            </div>
+            <div class="calendar_title-next">
+              <button type="button" class="next">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="calendar-header_list">
+              <button type="button" class="list-content_btn">
+                <p class="list-content_title">목록</p>
+              </button>
+            </div>
+          </div>
+
+          <div class="content-calendar">
+            <div class="day-of-week">
+              <div class="dayHeader sun">일</div>
+              <div class="dayHeader">월</div>
+              <div class="dayHeader">화</div>
+              <div class="dayHeader">수</div>
+              <div class="dayHeader">목</div>
+              <div class="dayHeader">금</div>
+              <div class="dayHeader sat">토</div>
+            </div>
+            <div class="calendar-body"></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- 모달 창 -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Modal content -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 모달 끝 -->
+
+    <div class="mn-r"></div>
+
+    <div class="ft-l"></div>
+    <footer class="ft">
+      <div class="ft__buttons f-item1">
+        <a href="index.html" class="faTag-title">슬기로운 반려생활</a>
+      </div>
+      <div class="ft__mid-area">
+        <div class="ft__buttons f-item2">
+          <a href="#" class="faTag-title">개인정보처리방침</a>
+        </div>
+        <div class="ft__buttons f-item3">
+          <a href="#" class="faTag-title">이용약관</a>
+        </div>
+        <div class="ft__buttons f-item4">
+          <a href="#" class="faTag-title">광고문의</a>
+        </div>
+      </div>
+      <div class="ft__info">
+        <p>슬기로운 반려생활</p>
+        <p>주소 : 울산시 자바 개발구 KH빌딩 5층 502호</p>
+        <p>광고문의 052-123-4567</p>
+      </div>
+      <div class="ft__copy">
+        Copyright© 2023 슬반생.All right reserved. Designed by 슬반생
+      </div>
+    </footer>
+    <div class="ft-r"></div>
+  </div>
+  <!-- 햄버거 메뉴 구현 -->
+  <script src="../js/hambuger.js"></script>
+
+  <script>
+    $(function () {
+      $('#mypagePcGnb').children().eq(2).find('a').addClass('on');
+    });
+  </script>
+
+  <!-- jQuery, Popper.js 로드 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+
+</body>
+
+</html>

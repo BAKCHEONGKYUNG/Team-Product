@@ -129,7 +129,7 @@ window.onload = function () {
     );
     removeCalendar();
     buildCalendar();
-    resetInsert();
+    // resetInsert();
     redrawLi();
   });
   nextEl.addEventListener('click', function () {
@@ -140,7 +140,7 @@ window.onload = function () {
     );
     removeCalendar();
     buildCalendar();
-    resetInsert();
+    // resetInsert();
     redrawLi();
   });
 

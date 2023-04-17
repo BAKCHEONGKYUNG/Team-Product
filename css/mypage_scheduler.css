@@ -1,13 +1,9 @@
 @charset "utf-8";
-@import '/css/theme/layout.css';
+@import 'theme/layout.css';
 
 /* 전체 레이아웃 */
 button {
   cursor: pointer;
-}
-
-p {
-  margin: 0;
 }
 
 /* a 태그 기본 속성 설정 */
@@ -33,6 +29,12 @@ p {
   background-color: var(--color-background2);
   padding: 20px;
   box-sizing: border-box; /*반응형 추가*/
+}
+
+.user-profile {
+  display: block;
+  box-sizing: border-box;
+  height: 245px;
 }
 
 .main-container {
@@ -100,9 +102,6 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  /* position: relative;
-  left: 180px;
-  top: -60px; */
   width: 300px;
   height: 150px;
   max-width: 100%;
